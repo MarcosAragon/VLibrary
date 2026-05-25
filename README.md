@@ -1,6 +1,6 @@
-# Biblioteca Virtual 🎮
+# VLibrary🎮
 
-Una biblioteca virtual interactiva construida con React y Vite. Esta aplicación está diseñada para gestionar y visualizar colecciones personales de medios físicos o digitales (videojuegos, libros, películas) a través de una interfaz inmersiva inspirada en los menús cinemáticos (HUD) de las consolas modernas.
+Una biblioteca virtual interactiva construida con React y Vite. Esta aplicación está diseñada para gestionar y visualizar colecciones personales de medios físicos o digitales (videojuegos, libros, películas) a través de una interfaz inmersiva inspirada en los menús de estilo coverflow (HUD) de las consolas.
 
 ## Características Principales
 
@@ -26,11 +26,11 @@ Asegúrate de tener [Node.js](https://nodejs.org/) instalado.
 
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/MarcosAragon/biblioteca-virtual.git
+   git clone https://github.com/MarcosAragon/VLibrary.git
    ```
 2. Navega al directorio del proyecto:
    ```bash
-   cd biblioteca-virtual
+   cd VLibrary
    ```
 3. Instala las dependencias:
    ```bash
