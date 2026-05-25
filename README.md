@@ -25,18 +25,17 @@ El proyecto sigue una arquitectura limpia orientada a componentes usando React:
 Asegúrate de tener [Node.js](https://nodejs.org/) instalado.
 
 1. Clona el repositorio:
+
    ```bash
    git clone https://github.com/MarcosAragon/VLibrary.git
    ```
-2. Navega al directorio del proyecto:
-   ```bash
-   cd VLibrary
-   ```
 3. Instala las dependencias:
+
    ```bash
    npm install
    ```
 4. Inicia el servidor de desarrollo:
+
    ```bash
    npm run dev
    ```
