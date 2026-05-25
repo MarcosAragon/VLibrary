@@ -18,7 +18,7 @@ export default function CarruselJuegos() {
     { id: 'xbox', nombre: 'Xbox' },
   ]);
   const [colecciones, setColecciones] = useState([
-    { id: 'col-gta', nombre: 'Grand Theft Auto' }
+    { id: 'col-gta', nombre: 'Grand Theft Auto', imagen: 'Grand_Theft_Auto' }
   ]);
   const [plataformaActiva, setPlataformaActiva] = useState('TODOS');
   const [mostrarCrud, setMostrarCrud] = useState(false);
@@ -313,61 +313,65 @@ export default function CarruselJuegos() {
 
   return (
     <div className="app-layout-main">
-      <div style={{ position: 'absolute', top: '35px', right: '35px', display: 'flex', alignItems: 'center', gap: '15px', zIndex: 100 }}>
-        {plataformaActiva === 'TODOS' && (
-          <div className="orden-selector" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <span style={{ color: 'var(--text-muted)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px' }}>Ordenar por:</span>
-            <select
-              value={ordenTipo}
-              onChange={(e) => setOrdenTipo(e.target.value)}
-              style={{
-                background: 'rgba(15, 23, 42, 0.8)',
-                color: 'var(--text-main)',
-                border: '1px solid var(--primary-color)',
-                padding: '4px 12px',
-                borderRadius: '20px',
-                outline: 'none',
-                cursor: 'pointer',
-                fontSize: '0.85rem',
-                fontFamily: 'inherit'
-              }}
-            >
-              <option value="plataforma">Plataforma</option>
-              <option value="alfabetico">Orden Alfabético</option>
-            </select>
-          </div>
-        )}
+      {!mostrarCrud && !mostrarAcercaDe && (
+        <div style={{ position: 'absolute', top: '35px', right: '35px', display: 'flex', alignItems: 'center', gap: '15px', zIndex: 100 }}>
+          {plataformaActiva === 'TODOS' && (
+            <div className="orden-selector" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span style={{ color: 'var(--text-muted)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px' }}>Ordenar por:</span>
+              <select
+                value={ordenTipo}
+                onChange={(e) => setOrdenTipo(e.target.value)}
+                style={{
+                  background: 'rgba(15, 23, 42, 0.8)',
+                  color: 'var(--text-main)',
+                  border: '1px solid var(--primary-color)',
+                  padding: '4px 12px',
+                  borderRadius: '20px',
+                  outline: 'none',
+                  cursor: 'pointer',
+                  fontSize: '0.85rem',
+                  fontFamily: 'inherit'
+                }}
+              >
+                <option value="plataforma">Plataforma</option>
+                <option value="alfabetico">Orden Alfabético</option>
+              </select>
+            </div>
+          )}
 
+          <button
+            className="btn-global-settings"
+            style={{ position: 'relative', top: '0', right: '0' }}
+            onClick={() => setMostrarCrud(true)}
+            title="Ajustes y Gestión"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+            </svg>
+          </button>
+        </div>
+      )}
+
+      {!mostrarCrud && !mostrarAcercaDe && (
         <button
-          className="btn-global-settings"
-          style={{ position: 'relative', top: '0', right: '0' }}
-          onClick={() => setMostrarCrud(true)}
-          title="Ajustes y Gestión"
+          className={`btn-floating-toggle ${menuAbierto ? 'abierto' : 'cerrado'}`}
+          onClick={() => setMenuAbierto(!menuAbierto)}
+          title="Mostrar/Ocultar Menú"
         >
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <circle cx="12" cy="12" r="3"></circle>
-            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            {menuAbierto ? (
+              <polyline points="15 18 9 12 15 6"></polyline> // Flecha Izquierda
+            ) : (
+              <>
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              </>
+            )}
           </svg>
         </button>
-      </div>
-
-      <button
-        className={`btn-floating-toggle ${menuAbierto ? 'abierto' : 'cerrado'}`}
-        onClick={() => setMenuAbierto(!menuAbierto)}
-        title="Mostrar/Ocultar Menú"
-      >
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-          {menuAbierto ? (
-            <polyline points="15 18 9 12 15 6"></polyline> // Flecha Izquierda
-          ) : (
-            <>
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-            </>
-          )}
-        </svg>
-      </button>
+      )}
 
       <div className="app-bg-layer" style={{ backgroundImage: fondoActivo === 'none' ? 'none' : `url(/assets/background/background_${fondoActivo}.jpg)` }}></div>
 
@@ -409,7 +413,17 @@ export default function CarruselJuegos() {
               className={`ruleta-item ${plataformaActiva === c.id ? 'active' : ''}`}
               onClick={() => setPlataformaActiva(c.id)}
             >
-              <span>{c.nombre}</span>
+              <img
+                src={`/assets/images/platforms/collections/${c.imagen || c.id}.png`}
+                alt={c.nombre}
+                className="plat-logo"
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.style.display = 'none';
+                  e.target.nextSibling.style.display = 'block';
+                }}
+              />
+              <span className="plat-fallback" style={{ display: 'none' }}>{c.nombre}</span>
             </li>
           ))}
         </ul>
@@ -505,17 +519,19 @@ export default function CarruselJuegos() {
       </div>
 
       {/* Botón y Modal Acerca de */}
-      <button
-        className="btn-floating-info"
-        onClick={() => setMostrarAcercaDe(true)}
-        title="Acerca de"
-      >
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="12" cy="12" r="10"></circle>
-          <line x1="12" y1="16" x2="12" y2="12"></line>
-          <line x1="12" y1="8" x2="12.01" y2="8"></line>
-        </svg>
-      </button>
+      {!mostrarCrud && !mostrarAcercaDe && (
+        <button
+          className="btn-floating-info"
+          onClick={() => setMostrarAcercaDe(true)}
+          title="Acerca de"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+          </svg>
+        </button>
+      )}
 
       {mostrarAcercaDe && (
         <div className="crud-overlay" style={{ zIndex: 9999 }}>
