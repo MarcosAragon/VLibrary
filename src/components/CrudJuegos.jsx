@@ -221,19 +221,34 @@ export default function CrudJuegos({ juegos, setJuegos, plataformas, setPlatafor
                   <div className="theme-color-circle" style={{ background: '#d946ef', color: '#d946ef' }}></div>
                   <span>Cyberpunk Rosa</span>
                 </button>
-                <button
-                  className={`theme-card-btn ${temaActivo === 'light' ? 'active' : ''}`}
-                  onClick={() => cambiarTema('light')}
-                >
-                  <div className="theme-color-circle" style={{ background: '#e2e8f0', color: '#e2e8f0' }}></div>
-                  <span>Blanco (Light)</span>
-                </button>
+
                 <button
                   className={`theme-card-btn ${temaActivo === 'dark' ? 'active' : ''}`}
                   onClick={() => cambiarTema('dark')}
                 >
                   <div className="theme-color-circle" style={{ background: '#09090b', color: '#09090b' }}></div>
                   <span>Negro (Dark)</span>
+                </button>
+                <button
+                  className={`theme-card-btn ${temaActivo === 'crimson' ? 'active' : ''}`}
+                  onClick={() => cambiarTema('crimson')}
+                >
+                  <div className="theme-color-circle" style={{ background: '#ef4444', color: '#ef4444' }}></div>
+                  <span>Rojo Carmesí</span>
+                </button>
+                <button
+                  className={`theme-card-btn ${temaActivo === 'gold' ? 'active' : ''}`}
+                  onClick={() => cambiarTema('gold')}
+                >
+                  <div className="theme-color-circle" style={{ background: '#eab308', color: '#eab308' }}></div>
+                  <span>Oro Imperial</span>
+                </button>
+                <button
+                  className={`theme-card-btn ${temaActivo === 'amethyst' ? 'active' : ''}`}
+                  onClick={() => cambiarTema('amethyst')}
+                >
+                  <div className="theme-color-circle" style={{ background: '#a855f7', color: '#a855f7' }}></div>
+                  <span>Amatista Místico</span>
                 </button>
               </div>
 

@@ -431,7 +431,37 @@ export default function CarruselJuegos() {
 
       <div className="contenedor-carrusel-interactivo" style={{ flex: 1 }}>
         <div className="top-header-carrusel">
-          <h2>{plataformaActiva === 'TODOS' ? 'Todas las Plataformas' : (plataformas.find(p => p.id === plataformaActiva)?.nombre || colecciones.find(c => c.id === plataformaActiva)?.nombre)}</h2>
+          {plataformaActiva === 'TODOS' ? (
+            <h2>Todas las Plataformas</h2>
+          ) : (
+            (() => {
+              const p = plataformas.find(plat => plat.id === plataformaActiva);
+              const c = colecciones.find(col => col.id === plataformaActiva);
+              const obj = p || c;
+              if (!obj) return <h2>Desconocido</h2>;
+              
+              const isCollection = !!c;
+              const imgPath = isCollection 
+                ? `/assets/images/platforms/collections/${obj.imagen || obj.id}.png` 
+                : `/assets/images/platforms/${obj.imagen || obj.id}.png`;
+              
+              return (
+                <div className="header-plat-logo-container">
+                  <img
+                    src={imgPath}
+                    alt={obj.nombre}
+                    className="header-plat-logo"
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.style.display = 'none';
+                      e.target.nextSibling.style.display = 'inline-block';
+                    }}
+                  />
+                  <h2 className="header-plat-fallback" style={{ display: 'none' }}>{obj.nombre}</h2>
+                </div>
+              );
+            })()
+          )}
         </div>
 
         {juegosFiltrados.length > 0 ? (
