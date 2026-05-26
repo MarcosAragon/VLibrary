@@ -1,6 +1,18 @@
-# VLibrary🎮
 
-Una biblioteca virtual interactiva construida con React y Vite. Esta aplicación está diseñada para gestionar y visualizar colecciones personales de medios físicos o digitales (videojuegos, libros, películas) a través de una interfaz inmersiva inspirada en los menús de estilo coverflow (HUD) de las consolas.
+
+```
+░▒▓█▓▒░░▒▓█▓▒      ░▒▓█▓▒░      ░▒▓█▓▒░▒▓███████▓▒░░▒▓███████▓▒░ ░▒▓██████▓▒░░▒▓███████▓▒░░▒▓█▓▒░░▒▓█▓▒░ 
+░▒▓█▓▒░░▒▓█▓▒      ░▒▓█▓▒░      ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ 
+ ░▒▓█▓▒▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ 
+ ░▒▓█▓▒▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░▒▓███████▓▒░░▒▓███████▓▒░░▒▓████████▓▒░▒▓███████▓▒░ ░▒▓██████▓▒░  
+  ░▒▓█▓▓█▓▒░       ░▒▓█▓▒░      ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░  ░▒▓█▓▒░   
+  ░▒▓█▓▓█▓▒░       ░▒▓█▓▒░      ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░  ░▒▓█▓▒░   
+   ░▒▓██▓▒░        ░▒▓████████▓▒░▒▓█▓▒░▒▓███████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░  ░▒▓█▓▒░   
+```
+
+# VLibrary
+
+Una biblioteca virtual interactiva construida con React y Vite. Esta aplicación está diseñada para gestionar y visualizar colecciones personales de medios físicos o digitales (videojuegos, libros, películas) a través de una interfaz inmersiva inspirada en los menús de estilo coverflow de las consolas.
 
 ## Características Principales
 
@@ -29,12 +41,12 @@ Asegúrate de tener [Node.js](https://nodejs.org/) instalado.
    ```bash
    git clone https://github.com/MarcosAragon/VLibrary.git
    ```
-3. Instala las dependencias:
+2. Instala las dependencias:
 
    ```bash
    npm install
    ```
-4. Inicia el servidor de desarrollo:
+3. Inicia el servidor de desarrollo:
 
    ```bash
    npm run dev
